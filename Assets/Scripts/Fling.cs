@@ -12,9 +12,15 @@ public class Fling : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        Countdown.TimesUp += FlingMe;
     }
 
-    void OnMouseUp() {
+    void OnMouseUp()
+    {
+        FlingMe();
+    }
+
+    void FlingMe() {
         // get mouse position in world coordinates
         mouseUpPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
